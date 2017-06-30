@@ -117,6 +117,7 @@ public class MainStage extends Application {
         apply.getChildren().addAll(name, applyButton);
         apply.setAlignment(Pos.CENTER);
         applyButton.setOnAction(e -> {
+            this.name = name.getText();
             window.setScene(getNextScene());
         });
 
@@ -195,7 +196,6 @@ public class MainStage extends Application {
         middle.setHgap(10);
 
         // enable stuff
-
         if (ivies[0]) {
             brownLabel.setManaged(true);
             brownStatus.setManaged(true);
@@ -228,6 +228,10 @@ public class MainStage extends Application {
             yaleLabel.setManaged(true);
             yaleStatus.setManaged(true);
         }
+
+        // add button action for getting status
+        harvardStatus.setOnAction(e -> Harvard.display(name));
+        cornellStatus.setOnAction(e -> Cornell.display(name));
 
         BorderPane borderPane2 = new BorderPane();
         borderPane2.setCenter(middle);
