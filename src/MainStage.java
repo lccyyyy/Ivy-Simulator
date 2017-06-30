@@ -55,7 +55,7 @@ public class MainStage extends Application {
         Label princetonLabel = new Label("Princeton");
         CheckBox princetonApply = new CheckBox();
         // penn
-        Label pennLabel = new Label("Columbia");
+        Label pennLabel = new Label("Penn");
         CheckBox pennApply = new CheckBox();
         // yale
         Label yaleLabel = new Label("Yale");
@@ -166,7 +166,7 @@ public class MainStage extends Application {
         princetonLabel.setManaged(false);
         princetonStatus.setManaged(false);
         // penn
-        Label pennLabel = new Label("Columbia");
+        Label pennLabel = new Label("Penn");
         Button pennStatus = new Button("View status update");
         pennLabel.setManaged(false);
         pennStatus.setManaged(false);
@@ -232,6 +232,9 @@ public class MainStage extends Application {
         // add button action for getting status
         harvardStatus.setOnAction(e -> Harvard.display(name));
         cornellStatus.setOnAction(e -> Cornell.display(name));
+        brownStatus.setOnAction(e -> Brown.display(name));
+        columbiaStatus.setOnAction(e -> Columbia.display(name));
+        yaleStatus.setOnAction(e -> Yale.display(name));
 
         BorderPane borderPane2 = new BorderPane();
         borderPane2.setCenter(middle);
