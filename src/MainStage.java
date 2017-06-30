@@ -137,27 +137,43 @@ public class MainStage extends Application {
         // brown
         Label brownLabel = new Label("Brown");
         Button brownStatus = new Button("View status update");
+        brownLabel.setManaged(false);
+        brownStatus.setManaged(false);
         // columbia
         Label columbiaLabel = new Label("Columbia");
         Button columbiaStatus = new Button("View status update");
+        columbiaLabel.setManaged(false);
+        columbiaStatus.setManaged(false);
         // cornell
         Label cornellLabel = new Label("Cornell");
         Button cornellStatus = new Button("View status update");
+        cornellLabel.setManaged(false);
+        cornellStatus.setManaged(false);
         // dartmouth
         Label dartmouthLabel = new Label("Dartmouth");
         Button dartmouthStatus = new Button("View status update");
+        dartmouthLabel.setManaged(false);
+        dartmouthStatus.setManaged(false);
         // harvard
         Label harvardLabel = new Label("Harvard");
         Button harvardStatus = new Button("View status update");
+        harvardLabel.setManaged(false);
+        harvardStatus.setManaged(false);
         // princeton
         Label princetonLabel = new Label("Princeton");
         Button princetonStatus = new Button("View status update");
+        princetonLabel.setManaged(false);
+        princetonStatus.setManaged(false);
         // penn
         Label pennLabel = new Label("Columbia");
         Button pennStatus = new Button("View status update");
+        pennLabel.setManaged(false);
+        pennStatus.setManaged(false);
         // yale
         Label yaleLabel = new Label("Yale");
         Button yaleStatus = new Button("View status update");
+        yaleLabel.setManaged(false);
+        yaleStatus.setManaged(false);
         // add all ivies
         middle.add(brownLabel, 0, 0);
         middle.add(brownStatus, 1, 0);
@@ -177,6 +193,41 @@ public class MainStage extends Application {
         middle.add(yaleStatus, 1, 7);
         middle.setAlignment(Pos.CENTER);
         middle.setHgap(10);
+
+        // enable stuff
+
+        if (ivies[0]) {
+            brownLabel.setManaged(true);
+            brownStatus.setManaged(true);
+        }
+        if (ivies[1]) {
+            columbiaLabel.setManaged(true);
+            columbiaStatus.setManaged(true);
+        }
+        if (ivies[2]) {
+            cornellLabel.setManaged(true);
+            cornellStatus.setManaged(true);
+        }
+        if (ivies[3]) {
+            dartmouthLabel.setManaged(true);
+            dartmouthStatus.setManaged(true);
+        }
+        if (ivies[4]) {
+            harvardLabel.setManaged(true);
+            harvardStatus.setManaged(true);
+        }
+        if (ivies[5]) {
+            princetonLabel.setManaged(true);
+            princetonStatus.setManaged(true);
+        }
+        if (ivies[6]) {
+            pennLabel.setManaged(true);
+            pennStatus.setManaged(true);
+        }
+        if (ivies[7]) {
+            yaleLabel.setManaged(true);
+            yaleStatus.setManaged(true);
+        }
 
         BorderPane borderPane2 = new BorderPane();
         borderPane2.setCenter(middle);
