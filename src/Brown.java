@@ -26,8 +26,9 @@ public class Brown {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Your Brown Application");
+        window.setResizable(false);
 
-        Image brownLogo = new Image("file:Brown.png");
+        Image brownLogo = new Image("file:Brown.jpg");
         ImageView image = new ImageView();
         image.setImage(brownLogo);
         image.setFitWidth(300);
@@ -54,7 +55,7 @@ public class Brown {
         layout.setTop(image);
         layout.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Scene scene = new Scene(layout, 800, 600);
+        Scene scene = new Scene(layout, 800, 700);
 
         window.setScene(scene);
         window.showAndWait();

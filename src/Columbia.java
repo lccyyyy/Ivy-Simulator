@@ -27,6 +27,7 @@ public class Columbia {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Your Columbia Application");
+        window.setResizable(false);
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));

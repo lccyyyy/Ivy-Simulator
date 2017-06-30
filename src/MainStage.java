@@ -9,6 +9,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import sun.applet.Main;
 
 public class MainStage extends Application {
 
@@ -82,7 +83,6 @@ public class MainStage extends Application {
         // CHECK BOX EVENT
         brownApply.selectedProperty().addListener(e -> {
             ivies[0] = !ivies[0];
-            System.out.println(ivies[0]);
         });
         columbiaApply.selectedProperty().addListener(e -> {
             ivies[1] = !ivies[1];
@@ -230,14 +230,50 @@ public class MainStage extends Application {
         }
 
         // add button action for getting status
-        harvardStatus.setOnAction(e -> Harvard.display(name));
-        cornellStatus.setOnAction(e -> Cornell.display(name));
-        brownStatus.setOnAction(e -> Brown.display(name));
-        columbiaStatus.setOnAction(e -> Columbia.display(name));
-        yaleStatus.setOnAction(e -> Yale.display(name));
+        harvardStatus.setOnAction(e -> {
+            harvardLabel.setVisible(false);
+            harvardStatus.setVisible(false);
+            Harvard.display(name);
+        });
+        cornellStatus.setOnAction(e -> {
+            Cornell.display(name);
+            cornellLabel.setVisible(false);
+            cornellStatus.setVisible(false);
+        });
+        brownStatus.setOnAction(e -> {
+            Brown.display(name);
+            brownLabel.setVisible(false);
+            brownStatus.setVisible(false);
+        });
+        columbiaStatus.setOnAction(e -> {
+            Columbia.display(name);
+            columbiaLabel.setVisible(false);
+            columbiaStatus.setVisible(false);
+        });
+        yaleStatus.setOnAction(e -> {
+            Yale.display(name);
+            yaleLabel.setVisible(false);
+            yaleStatus.setVisible(false);
+        });
+        princetonStatus.setOnAction(e -> {
+            Princeton.display(name);
+            princetonLabel.setVisible(false);
+            princetonStatus.setVisible(false);
+        });
 
+        Button restart = new Button("Apply again!");
+        restart.setAlignment(Pos.BOTTOM_CENTER);
+        restart.setOnAction(e -> {
+            try {
+                window.close();
+                new MainStage().start(new Stage());
+            } catch (Exception d) {
+                // do stuff
+            }
+        });
         BorderPane borderPane2 = new BorderPane();
         borderPane2.setCenter(middle);
+        borderPane2.setBottom(restart);
 
         return new Scene(borderPane2, 300, 250);
     }

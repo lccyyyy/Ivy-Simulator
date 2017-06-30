@@ -27,6 +27,7 @@ public class Cornell {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Your Cornell Application");
+        window.setResizable(false);
 
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
@@ -37,6 +38,8 @@ public class Cornell {
         Image cornellLogo = new Image("file:Cornell.jpg");
         ImageView image = new ImageView();
         image.setImage(cornellLogo);
+        image.setFitWidth(350);
+        image.setPreserveRatio(true);
         hbox.getChildren().add(image);
 
         letter = new TextArea();
@@ -59,7 +62,7 @@ public class Cornell {
         layout.setTop(hbox);
         layout.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Scene scene = new Scene(layout, 800, 600);
+        Scene scene = new Scene(layout, 800, 700);
 
         window.setScene(scene);
         window.showAndWait();

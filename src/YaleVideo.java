@@ -15,6 +15,7 @@ public class YaleVideo extends Application {
         );
         webview.setPrefSize(640, 390);
         Stage window = new Stage();
+        window.setResizable(false);
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Congratulations!");
         window.setScene(new Scene(webview));

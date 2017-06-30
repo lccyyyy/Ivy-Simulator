@@ -26,6 +26,7 @@ public class Yale {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Your Yale Application");
+        window.setResizable(false);
 
         Image yaleLogo = new Image("file:Yale.png");
         ImageView image = new ImageView();
@@ -53,7 +54,7 @@ public class Yale {
         layout.setTop(image);
         layout.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Scene scene = new Scene(layout, 800, 600);
+        Scene scene = new Scene(layout, 800, 700);
 
         window.setScene(scene);
         if (num >= 0 && num < 6) {
