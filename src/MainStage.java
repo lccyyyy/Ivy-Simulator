@@ -1,12 +1,10 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -16,6 +14,7 @@ public class MainStage extends Application {
 
     Stage window;
     boolean[] ivies;
+    String name;
 
     public static void main(String[] args) {
         launch(args);
@@ -107,12 +106,19 @@ public class MainStage extends Application {
             ivies[7] = !ivies[7];
         });
 
-        HBox apply = new HBox();
+        VBox apply = new VBox();
+        TextField name = new TextField("Name");
+        name.setOnMouseClicked(e -> {
+            name.setText("");
+        });
         Button applyButton = new Button("APPLY!");
         applyButton.setMinWidth(100);
         applyButton.setMinHeight(50);
-        apply.getChildren().add(applyButton);
+        apply.getChildren().addAll(name, applyButton);
         apply.setAlignment(Pos.CENTER);
+        applyButton.setOnAction(e -> {
+            window.setScene(getNextScene());
+        });
 
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(topLabel);
@@ -122,6 +128,60 @@ public class MainStage extends Application {
         Scene scene = new Scene(borderPane, 300, 250);
         window.setScene(scene);
         window.show();
+    }
+
+    public Scene getNextScene() {
+        // Scene 2
+        GridPane middle = new GridPane();
+        // ivy league checkboxes
+        // brown
+        Label brownLabel = new Label("Brown");
+        Button brownStatus = new Button("View status update");
+        // columbia
+        Label columbiaLabel = new Label("Columbia");
+        Button columbiaStatus = new Button("View status update");
+        // cornell
+        Label cornellLabel = new Label("Cornell");
+        Button cornellStatus = new Button("View status update");
+        // dartmouth
+        Label dartmouthLabel = new Label("Dartmouth");
+        Button dartmouthStatus = new Button("View status update");
+        // harvard
+        Label harvardLabel = new Label("Harvard");
+        Button harvardStatus = new Button("View status update");
+        // princeton
+        Label princetonLabel = new Label("Princeton");
+        Button princetonStatus = new Button("View status update");
+        // penn
+        Label pennLabel = new Label("Columbia");
+        Button pennStatus = new Button("View status update");
+        // yale
+        Label yaleLabel = new Label("Yale");
+        Button yaleStatus = new Button("View status update");
+        // add all ivies
+        middle.add(brownLabel, 0, 0);
+        middle.add(brownStatus, 1, 0);
+        middle.add(columbiaLabel, 0, 1);
+        middle.add(columbiaStatus, 1, 1);
+        middle.add(cornellLabel, 0, 2);
+        middle.add(cornellStatus, 1, 2);
+        middle.add(dartmouthLabel, 0, 3);
+        middle.add(dartmouthStatus, 1, 3);
+        middle.add(harvardLabel, 0, 4);
+        middle.add(harvardStatus, 1, 4);
+        middle.add(princetonLabel, 0, 5);
+        middle.add(princetonStatus, 1, 5);
+        middle.add(pennLabel, 0, 6);
+        middle.add(pennStatus, 1, 6);
+        middle.add(yaleLabel, 0, 7);
+        middle.add(yaleStatus, 1, 7);
+        middle.setAlignment(Pos.CENTER);
+        middle.setHgap(10);
+
+        BorderPane borderPane2 = new BorderPane();
+        borderPane2.setCenter(middle);
+
+        return new Scene(borderPane2, 300, 250);
     }
 
 }
