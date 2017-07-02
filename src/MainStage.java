@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,6 +12,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import sun.applet.Main;
+
+import java.io.IOException;
 
 public class MainStage extends Application {
 
@@ -259,6 +263,16 @@ public class MainStage extends Application {
             Princeton.display(name);
             princetonLabel.setVisible(false);
             princetonStatus.setVisible(false);
+        });
+        dartmouthStatus.setOnAction(e -> {
+            Dartmouth.display(name);
+            dartmouthLabel.setVisible(false);
+            dartmouthStatus.setVisible(false);
+        });
+        pennStatus.setOnAction(e -> {
+            Penn.display(name);
+            pennLabel.setVisible(false);
+            pennStatus.setVisible(false);
         });
 
         Button restart = new Button("Apply again!");

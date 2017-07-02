@@ -43,13 +43,13 @@ public class Princeton {
         Random decision = new Random();
         int num = decision.nextInt(100);
         if (num >= 0 && num < 6) {
-            princetonLogo = new Image("file:PrincetonAcceptance.png");
+            princetonLogo = new Image("file:donotedit/PrincetonAcceptance.png");
             getAcceptanceText();
         } else if (num >= 6 && num < 10) {
-            princetonLogo = new Image("file:Princeton.jpg");
+            princetonLogo = new Image("file:donotedit/Princeton.jpg");
             getWaitlistText();
         } else {
-            princetonLogo = new Image("file:Princeton.jpg");
+            princetonLogo = new Image("file:donotedit/Princeton.jpg");
             getRejectionText();
         }
         letter.positionCaret(caretPosition);
@@ -75,7 +75,7 @@ public class Princeton {
 
     private static void getRejectionText() {
         try {
-            Scanner sc = new Scanner(new File("PrincetonRejection.txt"));
+            Scanner sc = new Scanner(new File("donotedit/PrincetonRejection.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");
@@ -90,7 +90,7 @@ public class Princeton {
 
     private static void getAcceptanceText() {
         try {
-            Scanner sc = new Scanner(new File("PrincetonAcceptance.txt"));
+            Scanner sc = new Scanner(new File("donotedit/PrincetonAcceptance.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");
@@ -105,7 +105,7 @@ public class Princeton {
 
     private static void getWaitlistText() {
         try {
-            Scanner sc = new Scanner(new File("PrincetonWaitlist.txt"));
+            Scanner sc = new Scanner(new File("donotedit/PrincetonWaitlist.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");

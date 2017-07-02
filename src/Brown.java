@@ -28,7 +28,7 @@ public class Brown {
         window.setTitle("Your Brown Application");
         window.setResizable(false);
 
-        Image brownLogo = new Image("file:Brown.jpg");
+        Image brownLogo = new Image("file:donotedit/Brown.jpg");
         ImageView image = new ImageView();
         image.setImage(brownLogo);
         image.setFitWidth(300);
@@ -36,6 +36,7 @@ public class Brown {
 
         letter = new TextArea();
         letter.setEditable(false);
+        int caretPosition = letter.getCaretPosition();
         // Get random number. 0~5 acceptance, 6~99 rejection
         Random decision = new Random();
         int num = decision.nextInt(100);
@@ -48,6 +49,7 @@ public class Brown {
         }
         // add waitlist
         letter.setWrapText(true);
+        letter.positionCaret(caretPosition);
         letter.setStyle("-fx-focus-color: -fx-control-inner-background ; -fx-faint-focus-color: -fx-control-inner-background ;");
 
         BorderPane layout = new BorderPane();
@@ -63,7 +65,7 @@ public class Brown {
 
     private static void getRejectionText() {
         try {
-            Scanner sc = new Scanner(new File("BrownRejection.txt"));
+            Scanner sc = new Scanner(new File("donotedit/BrownRejection.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");
@@ -78,7 +80,7 @@ public class Brown {
 
     private static void getAcceptanceText() {
         try {
-            Scanner sc = new Scanner(new File("BrownAcceptance.txt"));
+            Scanner sc = new Scanner(new File("donotedit/BrownAcceptance.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");
@@ -93,7 +95,7 @@ public class Brown {
 
     private static void getWaitlistText() {
         try {
-            Scanner sc = new Scanner(new File("BrownWaitlist.txt"));
+            Scanner sc = new Scanner(new File("donotedit/BrownWaitlist.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");

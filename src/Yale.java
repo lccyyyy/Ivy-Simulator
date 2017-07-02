@@ -28,7 +28,7 @@ public class Yale {
         window.setTitle("Your Yale Application");
         window.setResizable(false);
 
-        Image yaleLogo = new Image("file:Yale.png");
+        Image yaleLogo = new Image("file:donotedit/Yale.png");
         ImageView image = new ImageView();
         image.setImage(yaleLogo);
         image.setFitHeight(150);
@@ -36,6 +36,7 @@ public class Yale {
 
         letter = new TextArea();
         letter.setEditable(false);
+        int caretPosition = letter.getCaretPosition();
         // Get random number. 0~5 acceptance, 6~99 rejection
         Random decision = new Random();
         int num = decision.nextInt(100);
@@ -46,6 +47,7 @@ public class Yale {
         } else {
             getRejectionText();
         }
+        letter.positionCaret(caretPosition);
         letter.setWrapText(true);
         letter.setStyle("-fx-focus-color: -fx-control-inner-background ; -fx-faint-focus-color: -fx-control-inner-background ;");
 
@@ -66,7 +68,7 @@ public class Yale {
 
     private static void getRejectionText() {
         try {
-            Scanner sc = new Scanner(new File("YaleRejection.txt"));
+            Scanner sc = new Scanner(new File("donotedit/YaleRejection.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");
@@ -81,7 +83,7 @@ public class Yale {
 
     private static void getAcceptanceText() {
         try {
-            Scanner sc = new Scanner(new File("YaleAcceptance.txt"));
+            Scanner sc = new Scanner(new File("donotedit/YaleAcceptance.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");
@@ -96,7 +98,7 @@ public class Yale {
 
     private static void getWaitlistText() {
         try {
-            Scanner sc = new Scanner(new File("YaleWaitlist.txt"));
+            Scanner sc = new Scanner(new File("donotedit/YaleWaitlist.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ",\n\n");

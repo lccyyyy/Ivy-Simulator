@@ -35,7 +35,7 @@ public class Cornell {
         hbox.setStyle("-fx-background-color: #ffffff;");
         hbox.setAlignment(Pos.TOP_CENTER);
 
-        Image cornellLogo = new Image("file:Cornell.jpg");
+        Image cornellLogo = new Image("file:donotedit/Cornell.jpg");
         ImageView image = new ImageView();
         image.setImage(cornellLogo);
         image.setFitWidth(350);
@@ -44,6 +44,7 @@ public class Cornell {
 
         letter = new TextArea();
         letter.setEditable(false);
+        int caretPosition = letter.getCaretPosition();
         // Get random number. 0~5 acceptance, 6~99 rejection
         Random decision = new Random();
         int num = decision.nextInt(100);
@@ -55,6 +56,7 @@ public class Cornell {
             getRejectionText();
         }
         letter.setWrapText(true);
+        letter.positionCaret(caretPosition);
         letter.setStyle("-fx-focus-color: -fx-control-inner-background ; -fx-faint-focus-color: -fx-control-inner-background ;");
 
         BorderPane layout = new BorderPane();
@@ -70,7 +72,7 @@ public class Cornell {
 
     private static void getRejectionText() {
         try {
-            Scanner sc = new Scanner(new File("CornellRejection.txt"));
+            Scanner sc = new Scanner(new File("donotedit/CornellRejection.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ":\n\n");
@@ -85,7 +87,7 @@ public class Cornell {
 
     private static void getAcceptanceText() {
         try {
-            Scanner sc = new Scanner(new File("CornellAcceptance.txt"));
+            Scanner sc = new Scanner(new File("donotedit/CornellAcceptance.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ":\n\n");
@@ -100,7 +102,7 @@ public class Cornell {
 
     private static void getWaitlistText() {
         try {
-            Scanner sc = new Scanner(new File("CornellWaitlist.txt"));
+            Scanner sc = new Scanner(new File("donotedit/CornellWaitlist.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ":\n\n");

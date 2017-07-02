@@ -35,13 +35,13 @@ public class Columbia {
         hbox.setStyle("-fx-background-color: #ffffff;");
         hbox.setAlignment(Pos.TOP_CENTER);
 
-        Image columbiaLogo = new Image("file:Columbia.png");
+        Image columbiaLogo = new Image("file:donotedit/Columbia.png");
         ImageView image = new ImageView();
         image.setImage(columbiaLogo);
         hbox.getChildren().add(image);
 
         HBox hbox2 = new HBox();
-        Image columbiaFooter = new Image("file:ColumbiaFooter.png");
+        Image columbiaFooter = new Image("file:donotedit/ColumbiaFooter.png");
         ImageView image2 = new ImageView();
         image2.setImage(columbiaFooter);
         hbox2.getChildren().add(image2);
@@ -49,6 +49,7 @@ public class Columbia {
 
         letter = new TextArea();
         letter.setEditable(false);
+        int caretPosition = letter.getCaretPosition();
         // Get random number. 0~5 acceptance, 6~99 rejection
         Random decision = new Random();
         int num = decision.nextInt(100);
@@ -60,6 +61,7 @@ public class Columbia {
             getRejectionText();
         }
         letter.setWrapText(true);
+        letter.positionCaret(caretPosition);
         letter.setStyle("-fx-focus-color: -fx-control-inner-background ; -fx-faint-focus-color: -fx-control-inner-background ;");
 
         BorderPane layout = new BorderPane();
@@ -76,7 +78,7 @@ public class Columbia {
 
     private static void getRejectionText() {
         try {
-            Scanner sc = new Scanner(new File("ColumbiaRejection.txt"));
+            Scanner sc = new Scanner(new File("donotedit/ColumbiaRejection.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ":\n\n");
@@ -92,7 +94,7 @@ public class Columbia {
 
     private static void getAcceptanceText() {
         try {
-            Scanner sc = new Scanner(new File("ColumbiaAcceptance.txt"));
+            Scanner sc = new Scanner(new File("donotedit/ColumbiaAcceptance.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ":\n\n");
@@ -107,7 +109,7 @@ public class Columbia {
 
     private static void getWaitlistText() {
         try {
-            Scanner sc = new Scanner(new File("ColumbiaWaitlist.txt"));
+            Scanner sc = new Scanner(new File("donotedit/ColumbiaWaitlist.txt"));
             letter.appendText("March 31, 2017");
             letter.appendText("\n\n");
             letter.appendText("Dear " + name + ":\n\n");
